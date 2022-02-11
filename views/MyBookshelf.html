@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Better Book Barter</title>
+    <link rel="stylesheet" href="/css/jass.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .mbs-body {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: coral;
+        color: antiquewhite;
+      }
+      .mbs-header {
+        text-align: center;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>My Bookshelf</h1>
+      <!-- TODO: Add a comment describing the functionality of this helper -->
+    </header>
+    <main class="mbs-body">
+      <div id="mbs-user-info">
+        <h2 class="mbs-header">User Information</h2>
+        <p>Rich Overholt</p>
+        <p><button>Update name</button></p>
+        <p><button>Update password</button></p>
+        <p>Available Books #2 (3-1)</p>
+      </div>
+
+      <div id="mbs-donated-books">
+        <h2 class="mbs-header">Books Donated (3)</h2>
+        <ul class="mbs-book-detail">
+          <li>
+            02/10/2022,
+            <span class="mbs-book-title"
+              >This is the title of my most recent book</span
+            >, <span class="mbs-book-author">LastName, FirstName</span>
+          </li>
+          <li>
+            02/05/2022,
+            <span class="mbs-book-title"
+              >This is the title of my penultimate book</span
+            >, <span class="mbs-book-author">LastName, FirstName</span>
+          </li>
+          <li>
+            02/01/2022,
+            <span class="mbs-book-title"
+              >This is the title of my first book</span
+            >, <span class="mbs-book-author">LastName, FirstName</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="mbs-received-books">
+        <h2 class="mbs-header">Books Received (1)</h2>
+        <ul class="mbs-book-detail">
+          <li>
+            02/10/2022,
+            <span class="mbs-book-title"
+              >This is the only book I've checked out</span
+            >, <span class="mbs-book-author">LastName, FirstName</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="mbs-rankings">
+        <h2 class="mbs-header">Ranking Data</h2>
+        <p># of books donated: 3 (5th / 17 users)</p>
+        <p># of books received: 1 (16th / 17 users)</p>
+        <p># of books donated: 3 (5th / 17 users)</p>
+      </div>
+    </main>
+  </body>
+</html>
