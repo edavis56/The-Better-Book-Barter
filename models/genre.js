@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class genre extends Model {}
 
-books.init(
+genre.init(
   {
      id: {
        type: DataTypes.INTEGER,
