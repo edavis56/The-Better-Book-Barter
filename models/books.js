@@ -20,7 +20,7 @@ books.init(
       allowNull: false,
     },
     genre: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     isbn: {
