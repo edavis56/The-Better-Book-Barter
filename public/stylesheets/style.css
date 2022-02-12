@@ -35,3 +35,18 @@ a {
   text-align: center;
   text-decoration: underline;
 }
+
+/* book inventory css */
+.book-card:hover {
+  transform: scale(1.1);
+}
+
+/* book details css */
+.back-to-inventory:hover {
+  transform: scale(1.1);
+}
+
+.check-out:hover {
+  transform: scale(1.2);
+}
+
