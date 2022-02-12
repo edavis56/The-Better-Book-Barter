@@ -40,7 +40,7 @@ books.init(
         key: 'type',
       },
     },
-    ranking: {
+    rating: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
