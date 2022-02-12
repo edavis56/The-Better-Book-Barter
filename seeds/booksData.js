@@ -24,7 +24,7 @@ const booksdata = [
   {
     title: 'Pride and Prejudice',
     author: 'Jane Austen',
-    genre: '',
+    genre: 'Fantasy',
     isbn: '',
     condition: 'fair',
     rating: '2',
@@ -33,7 +33,7 @@ const booksdata = [
   },{
     title: 'The Grapes of Wrath',
     author: 'John Steinbeck',
-    genre: '',
+    genre: 'Romance',
     isbn: '',
     condition: 'very good',
     rating: '5',
@@ -42,7 +42,7 @@ const booksdata = [
   },{
     title: 'To Kill a Mockingbird',
     author: 'Harper Lee',
-    genre: '',
+    genre: 'Contemporary',
     isbn: '',
     condition: 'good',
     rating: '3',
@@ -51,7 +51,7 @@ const booksdata = [
   },{
     title: 'Jane Eyre',
     author: 'Charlotte Bronte',
-    genre: '',
+    genre: 'Dystopian',
     isbn: '',
     condition: 'fair',
     rating: '4',
@@ -60,7 +60,7 @@ const booksdata = [
   },{
     title: 'Wuthering Heights',
     author: 'Emily Bronte',
-    genre: '',
+    genre: 'Horror',
     isbn: '',
     condition: 'poor',
     rating: '5',
@@ -69,7 +69,7 @@ const booksdata = [
   },{
     title: 'A Passage to India',
     author: 'E.M. Forster',
-    genre: '',
+    genre: 'Humor',
     isbn: '',
     condition: 'good',
     rating: '3',
@@ -78,7 +78,7 @@ const booksdata = [
   },{
     title: 'Lord of the Flies',
     author: 'William Golding',
-    genre: '',
+    genre: 'Children',
     isbn: '',
     condition: 'very good',
     rating: '4',
@@ -87,7 +87,7 @@ const booksdata = [
   },{
     title: 'Hamlet',
     author: 'William Shakespeare',
-    genre: '',
+    genre: 'Memoir',
     isbn: '',
     condition: 'poor',
     rating: '1',
@@ -96,7 +96,7 @@ const booksdata = [
   },{
     title: 'A Bend in the River',
     author: 'V.S. Naipaul',
-    genre: '',
+    genre: 'Cooking',
     isbn: '',
     condition: 'good',
     rating: '3',
@@ -105,7 +105,7 @@ const booksdata = [
   },{
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
-    genre: '',
+    genre: 'Art',
     isbn: '',
     condition: 'poor',
     rating: '4',
@@ -114,7 +114,7 @@ const booksdata = [
   },{
     title: 'The Catcher in the Rye',
     author: 'J.D. Salinger',
-    genre: '',
+    genre: 'Self-help',
     isbn: '',
     condition: 'good',
     rating: '5',
@@ -123,7 +123,7 @@ const booksdata = [
   },{
     title: 'The Bell Jar',
     author: 'Sylvia Path',
-    genre: '',
+    genre: 'Developmental',
     isbn: '',
     condition: 'fair',
     rating: '2',
@@ -132,7 +132,7 @@ const booksdata = [
   },{
     title: 'Brave New World',
     author: 'Aldous Huxley',
-    genre: '',
+    genre: 'Motivational',
     isbn: '',
     condition: 'fair',
     rating: '3',
@@ -141,7 +141,7 @@ const booksdata = [
   },{
     title: 'The Diary of a Young Girl',
     author: 'Anne Frank',
-    genre: '',
+    genre: 'Health',
     isbn: '',
     condition: 'fair',
     rating: '5',
@@ -150,8 +150,8 @@ const booksdata = [
   },{
     title: 'Don Quixote',
     author: 'Miguel de Cervantes',
-    genre: '',
-    isbn: '',
+    genre: 'History',
+    isbn: 'Dystopian',
     condition: 'very good',
     rating: '4',
     // description:
@@ -159,8 +159,8 @@ const booksdata = [
   },{
     title: 'The Canterbury Tales',
     author: 'Geoffrey Chaucer',
-    genre: '',
-    isbn: '',
+    genre: 'Adventure',
+    isbn: 'Fantasy',
     condition: 'poor',
     rating: '3',
     // description:
@@ -168,7 +168,7 @@ const booksdata = [
   },{
     title: 'Ulysses',
     author: 'James Joyce',
-    genre: '',
+    genre: 'Historical fiction',
     isbn: '',
     condition: 'fair',
     rating: '4',
@@ -177,7 +177,7 @@ const booksdata = [
   },{
     title: 'The Quiet American',
     author: 'Graham Greene',
-    genre: '',
+    genre: 'Children',
     isbn: '',
     condition: 'good',
     rating: '2',
@@ -186,7 +186,7 @@ const booksdata = [
   },{
     title: 'Birdsong',
     author: 'Sebastian Faulks',
-    genre: '',
+    genre: 'memoir',
     isbn: '',
     condition: 'very good',
     rating: '3',
@@ -195,7 +195,7 @@ const booksdata = [
   },{
     title: 'Money',
     author: 'Martin Amis',
-    genre: '',
+    genre: 'Cooking',
     isbn: '',
     condition: 'poor',
     rating: '1',
@@ -204,7 +204,7 @@ const booksdata = [
   },{
     title: 'Harry Potter and the Deathly Hallows',
     author: 'J.K. Rowlings',
-    genre: '',
+    genre: 'Art',
     isbn: '',
     condition: 'very good',
     rating: '4',
@@ -213,7 +213,7 @@ const booksdata = [
   },{
     title: 'Moby Dick',
     author: 'Herman Melville',
-    genre: '',
+    genre: 'Self-help',
     isbn: '',
     condition: 'fair',
     rating: '3',
@@ -222,7 +222,7 @@ const booksdata = [
   },{
     title: 'The Wind in the Willows',
     author: 'Kenneth Grahame',
-    genre: '',
+    genre: 'Developmental',
     isbn: '',
     condition: 'good',
     rating: '2',
@@ -231,7 +231,7 @@ const booksdata = [
   },{
     title: 'Anna Karenina',
     author: 'Leo Tolstoy',
-    genre: '',
+    genre: 'Health',
     isbn: '',
     condition: 'poor',
     rating: '1',
@@ -240,7 +240,7 @@ const booksdata = [
   },{
     title: 'Rebecca',
     author: 'Daphne du Maurier',
-    genre: '',
+    genre: 'History',
     isbn: '',
     condition: 'good',
     rating: '2',
@@ -249,7 +249,7 @@ const booksdata = [
   },{
     title: 'On the Road',
     author: 'Jack Kerouae',
-    genre: '',
+    genre: 'Humor',
     isbn: '9780140185218',
     condition: 'very good',
     rating: '3',
