@@ -20,7 +20,7 @@ condition.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'books',
+    modelName: 'condition',
   },
 );
 
