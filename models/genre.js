@@ -20,7 +20,7 @@ genre.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'books',
+    modelName: 'genre',
   },
 );
 
