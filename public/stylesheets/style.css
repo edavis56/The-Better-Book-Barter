@@ -29,9 +29,8 @@ a {
 .mbs-body {
   display: flex;
   justify-content: space-evenly;
-  background-color: coral;
-  color: antiquewhite;
 }
+
 .mbs-header {
   text-align: center;
   text-decoration: underline;
