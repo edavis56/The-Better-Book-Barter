@@ -1,28 +1,38 @@
 header {
-    text-align: center;
+  text-align: center;
 }
 
 main {
-    background-color: #138a7a;
-    padding: 0 0 15px 0;
+  background-color: #138a7a;
+  padding: 0 0 15px 0;
 }
 
 footer {
-    text-align: center; 
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 }
 
 .comment-body {
-    height: 120px;
-    width: 590px;
+  height: 120px;
+  width: 590px;
 }
 
-
 .inv-head {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+}
+
+.mbs-body {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: coral;
+  color: antiquewhite;
+}
+.mbs-header {
+  text-align: center;
+  text-decoration: underline;
 }
