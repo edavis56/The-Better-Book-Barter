@@ -7,7 +7,7 @@ const booksdata = [
     genre: 'Adventure',
     isbn: '9780486280615',
     condition: 'fair',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },
@@ -17,7 +17,7 @@ const booksdata = [
     genre: 'Dystopia Fiction',
     isbn: '9780140817744',
     condition: 'good',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },
@@ -27,7 +27,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '2',
+    rating: '2',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -36,16 +36,16 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'very good',
-    ranking: '5',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'To Kill a Mockingbird',
-    author: 'harper Lee',
+    author: 'Harper Lee',
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -54,7 +54,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -63,7 +63,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '5',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -72,7 +72,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -81,7 +81,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'very good',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -90,7 +90,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '1',
+    rating: '1',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -99,7 +99,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -108,7 +108,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -117,7 +117,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '5',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -126,7 +126,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '2',
+    rating: '2',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -135,7 +135,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -144,7 +144,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '5',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -153,7 +153,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'very good',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -162,7 +162,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -171,7 +171,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -180,7 +180,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '2',
+    rating: '2',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -189,7 +189,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'very good',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -198,7 +198,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '1',
+    rating: '1',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -207,7 +207,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'very good',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -216,7 +216,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'fair',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -225,7 +225,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '2',
+    rating: '2',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -234,7 +234,7 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'poor',
-    ranking: '1',
+    rating: '1',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
@@ -243,218 +243,64 @@ const booksdata = [
     genre: '',
     isbn: '',
     condition: 'good',
-    ranking: '2',
+    rating: '2',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'On the Road',
     author: 'Jack Kerouae',
     genre: '',
-    isbn: '',
+    isbn: '9780140185218',
     condition: 'very good',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'Heart of Darkness',
     author: 'Joseph Conrad',
-    genre: '',
-    isbn: '',
+    genre: 'Adventure',
+    isbn: '9780140180909',
     condition: 'fir',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'The Way We Live Now',
     author: 'Anthony Trollope',
-    genre: '',
-    isbn: '',
+    genre: 'Contemporary',
+    isbn: '9780141884233',
     condition: 'fair',
-    ranking: '3',
+    rating: '3',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'The Stranger',
     author: 'Albert Camus',
-    genre: '',
-    isbn: '',
+    genre: 'Mystrery',
+    isbn: '9780394447483',
     condition: 'fair',
-    ranking: '5',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'The Color Purple',
     author: 'Alice Walker',
-    genre: '',
-    isbn: '',
+    genre: 'Historical fiction',
+    isbn: '9780151191536',
     condition: 'poor',
-    ranking: '4',
+    rating: '4',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },{
     title: 'Life of Pi',
     author: 'Yann Martel',
-    genre: '',
-    isbn: '',
+    genre: 'Adventure',
+    isbn: '9780151013838',
     condition: 'good',
-    ranking: '5',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
-    // description:
-    //   'Branches with pink apricot blossoms against a blue background.',
-  },{
-    title: '',
-    author: '',
-    genre: '',
-    isbn: '',
-    condition: '',
-    ranking: '',
+    rating: '5',
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
   },
-  
 ];
 
 const seedPaintings = () => books.bulkCreate(booksdata);
