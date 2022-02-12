@@ -18,10 +18,15 @@ books.init(
     author: {
       type: DataTypes.STRING,
       allowNull: false,
+      
     },
     genre: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: 'genre',
+        key: 'type',
+      },
     },
     isbn: {
       type: DataTypes.INTEGER,
@@ -30,6 +35,10 @@ books.init(
     condition: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: 'genre',
+        key: 'type',
+      },
     },
     ranking: {
       type: DataTypes.INTEGER,
