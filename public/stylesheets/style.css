@@ -36,3 +36,8 @@ a {
   text-align: center;
   text-decoration: underline;
 }
+
+/* book inventory css */
+.book-card:hover {
+  transform: scale(1.1);
+}
