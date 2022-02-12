@@ -303,6 +303,6 @@ const booksdata = [
   },
 ];
 
-const seedPaintings = () => books.bulkCreate(booksdata);
+const seedBooks = () => books.bulkCreate(booksdata);
 
-module.exports = seedPaintings;
+module.exports = seedBooks;
