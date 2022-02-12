@@ -25,7 +25,7 @@ const booksdata = [
     title: 'Pride and Prejudice',
     author: 'Jane Austen',
     genre: 'Fantasy',
-    isbn: '',
+    isbn: '9780140817786',
     condition: 'fair',
     rating: '2',
     // description:
@@ -34,7 +34,7 @@ const booksdata = [
     title: 'The Grapes of Wrath',
     author: 'John Steinbeck',
     genre: 'Romance',
-    isbn: '',
+    isbn: '9780140817798',
     condition: 'very good',
     rating: '5',
     // description:
@@ -43,7 +43,7 @@ const booksdata = [
     title: 'To Kill a Mockingbird',
     author: 'Harper Lee',
     genre: 'Contemporary',
-    isbn: '',
+    isbn: '9780140817156',
     condition: 'good',
     rating: '3',
     // description:
@@ -52,7 +52,7 @@ const booksdata = [
     title: 'Jane Eyre',
     author: 'Charlotte Bronte',
     genre: 'Dystopian',
-    isbn: '',
+    isbn: '9780140817888',
     condition: 'fair',
     rating: '4',
     // description:
@@ -61,7 +61,7 @@ const booksdata = [
     title: 'Wuthering Heights',
     author: 'Emily Bronte',
     genre: 'Horror',
-    isbn: '',
+    isbn: '9780140817873',
     condition: 'poor',
     rating: '5',
     // description:
@@ -70,7 +70,7 @@ const booksdata = [
     title: 'A Passage to India',
     author: 'E.M. Forster',
     genre: 'Humor',
-    isbn: '',
+    isbn: '9780140817135',
     condition: 'good',
     rating: '3',
     // description:
@@ -79,7 +79,7 @@ const booksdata = [
     title: 'Lord of the Flies',
     author: 'William Golding',
     genre: 'Children',
-    isbn: '',
+    isbn: '9780140817456',
     condition: 'very good',
     rating: '4',
     // description:
@@ -88,7 +88,7 @@ const booksdata = [
     title: 'Hamlet',
     author: 'William Shakespeare',
     genre: 'Memoir',
-    isbn: '',
+    isbn: '9780140817789',
     condition: 'poor',
     rating: '1',
     // description:
@@ -97,7 +97,7 @@ const booksdata = [
     title: 'A Bend in the River',
     author: 'V.S. Naipaul',
     genre: 'Cooking',
-    isbn: '',
+    isbn: '9780140815555',
     condition: 'good',
     rating: '3',
     // description:
@@ -106,7 +106,7 @@ const booksdata = [
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
     genre: 'Art',
-    isbn: '',
+    isbn: '9780140816666',
     condition: 'poor',
     rating: '4',
     // description:
@@ -115,7 +115,7 @@ const booksdata = [
     title: 'The Catcher in the Rye',
     author: 'J.D. Salinger',
     genre: 'Self-help',
-    isbn: '',
+    isbn: '9780140817777',
     condition: 'good',
     rating: '5',
     // description:
@@ -124,7 +124,7 @@ const booksdata = [
     title: 'The Bell Jar',
     author: 'Sylvia Path',
     genre: 'Developmental',
-    isbn: '',
+    isbn: '9780140818888',
     condition: 'fair',
     rating: '2',
     // description:
@@ -133,7 +133,7 @@ const booksdata = [
     title: 'Brave New World',
     author: 'Aldous Huxley',
     genre: 'Motivational',
-    isbn: '',
+    isbn: '9780140811111',
     condition: 'fair',
     rating: '3',
     // description:
@@ -142,7 +142,7 @@ const booksdata = [
     title: 'The Diary of a Young Girl',
     author: 'Anne Frank',
     genre: 'Health',
-    isbn: '',
+    isbn: '9780140812222',
     condition: 'fair',
     rating: '5',
     // description:
@@ -151,7 +151,7 @@ const booksdata = [
     title: 'Don Quixote',
     author: 'Miguel de Cervantes',
     genre: 'History',
-    isbn: 'Dystopian',
+    isbn: '9780140813333',
     condition: 'very good',
     rating: '4',
     // description:
@@ -160,7 +160,7 @@ const booksdata = [
     title: 'The Canterbury Tales',
     author: 'Geoffrey Chaucer',
     genre: 'Adventure',
-    isbn: 'Fantasy',
+    isbn: '9780140814444',
     condition: 'poor',
     rating: '3',
     // description:
@@ -169,7 +169,7 @@ const booksdata = [
     title: 'Ulysses',
     author: 'James Joyce',
     genre: 'Historical fiction',
-    isbn: '',
+    isbn: '9780140855555',
     condition: 'fair',
     rating: '4',
     // description:
@@ -178,7 +178,7 @@ const booksdata = [
     title: 'The Quiet American',
     author: 'Graham Greene',
     genre: 'Children',
-    isbn: '',
+    isbn: '9780140866666',
     condition: 'good',
     rating: '2',
     // description:
@@ -187,7 +187,7 @@ const booksdata = [
     title: 'Birdsong',
     author: 'Sebastian Faulks',
     genre: 'memoir',
-    isbn: '',
+    isbn: '9780140877777',
     condition: 'very good',
     rating: '3',
     // description:
@@ -196,7 +196,7 @@ const booksdata = [
     title: 'Money',
     author: 'Martin Amis',
     genre: 'Cooking',
-    isbn: '',
+    isbn: '9780140888888',
     condition: 'poor',
     rating: '1',
     // description:
@@ -205,7 +205,7 @@ const booksdata = [
     title: 'Harry Potter and the Deathly Hallows',
     author: 'J.K. Rowlings',
     genre: 'Art',
-    isbn: '',
+    isbn: '9780140899999',
     condition: 'very good',
     rating: '4',
     // description:
@@ -214,7 +214,7 @@ const booksdata = [
     title: 'Moby Dick',
     author: 'Herman Melville',
     genre: 'Self-help',
-    isbn: '',
+    isbn: '9780140811111',
     condition: 'fair',
     rating: '3',
     // description:
@@ -223,7 +223,7 @@ const booksdata = [
     title: 'The Wind in the Willows',
     author: 'Kenneth Grahame',
     genre: 'Developmental',
-    isbn: '',
+    isbn: '9780140822222',
     condition: 'good',
     rating: '2',
     // description:
@@ -232,7 +232,7 @@ const booksdata = [
     title: 'Anna Karenina',
     author: 'Leo Tolstoy',
     genre: 'Health',
-    isbn: '',
+    isbn: '9780140833333',
     condition: 'poor',
     rating: '1',
     // description:
@@ -241,7 +241,7 @@ const booksdata = [
     title: 'Rebecca',
     author: 'Daphne du Maurier',
     genre: 'History',
-    isbn: '',
+    isbn: '9780140844444',
     condition: 'good',
     rating: '2',
     // description:
