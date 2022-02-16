@@ -24,7 +24,7 @@ Book.init(
       allowNull: true,
     },
     isbn: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: true,
     },
     condition: {
