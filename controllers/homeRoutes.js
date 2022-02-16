@@ -2,9 +2,9 @@ const { route } = require(".");
 
 const router = require("express").Router();
 
-router.get("/user/:id", (req, res) => {
+router.get("/user", (req, res) => {
   // MyBookshelf Page
-  let username = "Rich Overholt";
+  let username = "Rich Overholt"; // get from req.session
 
   let donatedBooks = [
     {
@@ -77,3 +77,5 @@ router.get("/condition", (req, res) =>
 router.get("*", (req, res) =>
   res.status(200).send("Routes are currently under development")
 );
+
+module.exports = router;
