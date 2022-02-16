@@ -81,7 +81,7 @@ router.get('/inventory', async (req, res) => {
     const books = bookData.map((book) => book.get({ plain: true }));
 
     res.render("book-inventory", {
-      books,
+      ...books,
       loggedIn: true,
     });
   } catch (err) {
@@ -89,7 +89,7 @@ router.get('/inventory', async (req, res) => {
   }
 });
 
-router.get("/book/:id", withAuth, async (req, res) => {
+router.get("/book/:id", async (req, res) => {
   try {
     const bookData = await Book.findByPk(req.params.id);
     // May want to include user data here?

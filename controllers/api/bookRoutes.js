@@ -6,45 +6,45 @@ const withAuth = require("../../utils/auth");
 
 // get functions
 // render all books to inventory page
-router.get("/", withAuth, async (req, res) => {
-  try {
-    const bookData = await Book.findAll();
+// router.get("/", withAuth, async (req, res) => {
+//   try {
+//     const bookData = await Book.findAll();
 
-    const books = bookData.map((book) => book.get({ plain: true }));
+//     const books = bookData.map((book) => book.get({ plain: true }));
 
-    res.render("book-inventory", {
-      books,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render("book-inventory", {
+//       books,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-// when selecting a specific book
-router.get("/book/:id", withAuth, async (req, res) => {
-  try {
-    const bookData = await Book.findByPk(req.params.id);
-    // May want to include user data here?
+// // when selecting a specific book
+// router.get("/book/:id", withAuth, async (req, res) => {
+//   try {
+//     const bookData = await Book.findByPk(req.params.id);
+//     // May want to include user data here?
 
-    if (!bookData) {
-      res.status(404).json({
-        message: "Book not found!",
-      });
-      return;
-    }
+//     if (!bookData) {
+//       res.status(404).json({
+//         message: "Book not found!",
+//       });
+//       return;
+//     }
 
-    const book = bookData.get({ plain: true });
-    console.log(book);
+//     const book = bookData.get({ plain: true });
+//     console.log(book);
 
-    res.render("book", {
-      ...book,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render("book", {
+//       ...book,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // create, update, and delete entries
 // book submission
