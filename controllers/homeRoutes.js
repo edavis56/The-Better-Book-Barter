@@ -1,6 +1,9 @@
+const { route } = require(".");
+
 const router = require("express").Router();
 
 router.get("/user/:id", (req, res) => {
+  // MyBookshelf Page
   let username = "Rich Overholt";
 
   let donatedBooks = [
@@ -57,8 +60,18 @@ router.get("/user/:id", (req, res) => {
   });
 });
 
-router.get("/submit", (req, res) =>
-  res.render("submitBook", { loggedIn: true })
+router.get(
+  "/submit",
+  (
+    req,
+    res // Submit/Donate a book
+  ) => res.render("submitBook", { loggedIn: true })
+);
+
+router.get("/genre", (req, res) => res.render("genre", { loggedIn: true }));
+
+router.get("/condition", (req, res) =>
+  res.render("condition", { loggedIn: true })
 );
 
 router.get("*", (req, res) =>
