@@ -76,7 +76,9 @@ router.get("/condition", (req, res) =>
 
 router.get('/inventory', async (req, res) => {
   try {
-    const bookData = await Book.findAll({});
+    const bookData = await Book.findAll({ 
+      group: ['isbn']
+     });
 
     const books = bookData.map((book) => book.get({ plain: true }));
 
