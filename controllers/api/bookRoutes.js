@@ -12,7 +12,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const books = bookData.map((book) => book.get({ plain: true }));
 
-    res.render("inventory", {
+    res.render("book-inventory", {
       books,
       logged_in: req.session.logged_in,
     });

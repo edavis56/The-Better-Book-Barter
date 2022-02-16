@@ -61,6 +61,45 @@ router.get("/submit", (req, res) =>
   res.render("submitBook", { loggedIn: true })
 );
 
+router.get('/inventory', async (req, res) => {
+  try {
+    const bookData = await Book.findAll({});
+
+    const books = bookData.map((book) => book.get({ plain: true }));
+
+    res.render("book-inventory", {
+      books,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/book/:id", withAuth, async (req, res) => {
+  try {
+    const bookData = await Book.findByPk(req.params.id);
+    // May want to include user data here?
+
+    if (!bookData) {
+      res.status(404).json({
+        message: "Book not found!",
+      });
+      return;
+    }
+
+    const book = bookData.get({ plain: true });
+    console.log(book);
+
+    res.render("book-details", {
+      ...book,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("*", (req, res) =>
   res.status(200).send("Routes are currently under development")
 );
