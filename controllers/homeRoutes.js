@@ -1,7 +1,10 @@
+const { route } = require(".");
+
 const router = require("express").Router();
 
-router.get("/user/:id", (req, res) => {
-  let username = "Rich Overholt";
+router.get("/user", (req, res) => {
+  // MyBookshelf Page
+  let username = "Rich Overholt"; // get from req.session
 
   let donatedBooks = [
     {
@@ -57,8 +60,18 @@ router.get("/user/:id", (req, res) => {
   });
 });
 
-router.get("/submit", (req, res) =>
-  res.render("submitBook", { loggedIn: true })
+router.get(
+  "/submit",
+  (
+    req,
+    res // Submit/Donate a book
+  ) => res.render("submitBook", { loggedIn: true })
+);
+
+router.get("/genre", (req, res) => res.render("genre", { loggedIn: true }));
+
+router.get("/condition", (req, res) =>
+  res.render("condition", { loggedIn: true })
 );
 
 router.get('/inventory', async (req, res) => {
@@ -103,3 +116,5 @@ router.get("/book/:id", withAuth, async (req, res) => {
 router.get("*", (req, res) =>
   res.status(200).send("Routes are currently under development")
 );
+
+module.exports = router;

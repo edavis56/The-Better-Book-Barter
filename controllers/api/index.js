@@ -5,3 +5,5 @@ const userRoutes = require("./userRoutes");
 
 router.use("/books", bookRoutes);
 router.use("/users", userRoutes);
+
+module.exports = router;
