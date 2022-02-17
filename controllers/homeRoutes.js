@@ -64,7 +64,7 @@ router.get(
   (
     req,
     res // Submit/Donate a book
-  ) => res.render("submitBook", { loggedIn: true })
+  ) => res.render("donateBook", { loggedIn: true })
 );
 
 router.get("/genre", (req, res) => res.render("genre", { loggedIn: true }));

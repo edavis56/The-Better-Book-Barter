@@ -9,7 +9,7 @@ const booksdata = [
     author: "Mark Twain",
     genre: "Adventure",
     isbn: "9780486280615",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -19,7 +19,7 @@ const booksdata = [
     author: "George Orwell",
     genre: "Dystopia Fiction",
     isbn: "9780140817744",
-    condition: "good",
+    book_condition: "Good",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -29,7 +29,7 @@ const booksdata = [
     author: "Jane Austen",
     genre: "Fantasy",
     isbn: "9780140817786",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "2",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -39,7 +39,7 @@ const booksdata = [
     author: "John Steinbeck",
     genre: "Romance",
     isbn: "9780140817798",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -49,7 +49,7 @@ const booksdata = [
     author: "Harper Lee",
     genre: "Contemporary",
     isbn: "9780140817156",
-    condition: "good",
+    book_condition: "Good",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -59,7 +59,7 @@ const booksdata = [
     author: "Charlotte Bronte",
     genre: "Dystopian",
     isbn: "9780140817888",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -69,7 +69,7 @@ const booksdata = [
     author: "Emily Bronte",
     genre: "Horror",
     isbn: "9780140817873",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -79,7 +79,7 @@ const booksdata = [
     author: "E.M. Forster",
     genre: "Humor",
     isbn: "9780140817135",
-    condition: "good",
+    book_condition: "Good",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -89,7 +89,7 @@ const booksdata = [
     author: "William Golding",
     genre: "Children",
     isbn: "9780140817456",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -99,7 +99,7 @@ const booksdata = [
     author: "William Shakespeare",
     genre: "Memoir",
     isbn: "9780140817789",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "1",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -109,7 +109,7 @@ const booksdata = [
     author: "V.S. Naipaul",
     genre: "Cooking",
     isbn: "9780140815555",
-    condition: "good",
+    book_condition: "Good",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -119,7 +119,7 @@ const booksdata = [
     author: "F. Scott Fitzgerald",
     genre: "Art",
     isbn: "9780140816666",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -129,7 +129,7 @@ const booksdata = [
     author: "J.D. Salinger",
     genre: "Self-help",
     isbn: "9780140817777",
-    condition: "good",
+    book_condition: "Good",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -139,7 +139,7 @@ const booksdata = [
     author: "Sylvia Path",
     genre: "Developmental",
     isbn: "9780140818888",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "2",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -149,7 +149,7 @@ const booksdata = [
     author: "Aldous Huxley",
     genre: "Motivational",
     isbn: "9780140811111",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -159,7 +159,7 @@ const booksdata = [
     author: "Anne Frank",
     genre: "Health",
     isbn: "9780140812222",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -169,7 +169,7 @@ const booksdata = [
     author: "Miguel de Cervantes",
     genre: "History",
     isbn: "9780140813333",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -179,7 +179,7 @@ const booksdata = [
     author: "Geoffrey Chaucer",
     genre: "Adventure",
     isbn: "9780140814444",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -189,7 +189,7 @@ const booksdata = [
     author: "James Joyce",
     genre: "Historical fiction",
     isbn: "9780140855555",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -199,7 +199,7 @@ const booksdata = [
     author: "Graham Greene",
     genre: "Children",
     isbn: "9780140866666",
-    condition: "good",
+    book_condition: "Good",
     rating: "2",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -209,7 +209,7 @@ const booksdata = [
     author: "Sebastian Faulks",
     genre: "memoir",
     isbn: "9780140877777",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -219,7 +219,7 @@ const booksdata = [
     author: "Martin Amis",
     genre: "Cooking",
     isbn: "9780140888888",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "1",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -229,7 +229,7 @@ const booksdata = [
     author: "J.K. Rowlings",
     genre: "Art",
     isbn: "9780140899999",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -239,7 +239,7 @@ const booksdata = [
     author: "Herman Melville",
     genre: "Self-help",
     isbn: "9780140811111",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -249,7 +249,7 @@ const booksdata = [
     author: "Kenneth Grahame",
     genre: "Developmental",
     isbn: "9780140822222",
-    condition: "good",
+    book_condition: "Good",
     rating: "2",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -259,7 +259,7 @@ const booksdata = [
     author: "Leo Tolstoy",
     genre: "Health",
     isbn: "9780140833333",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "1",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -269,7 +269,7 @@ const booksdata = [
     author: "Daphne du Maurier",
     genre: "History",
     isbn: "9780140844444",
-    condition: "good",
+    book_condition: "Good",
     rating: "2",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -279,7 +279,7 @@ const booksdata = [
     author: "Jack Kerouae",
     genre: "Humor",
     isbn: "9780140185218",
-    condition: "very good",
+    book_condition: "Very Good",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -289,7 +289,7 @@ const booksdata = [
     author: "Joseph Conrad",
     genre: "Adventure",
     isbn: "9780140180909",
-    condition: "fir",
+    book_condition: "fir",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -299,7 +299,7 @@ const booksdata = [
     author: "Anthony Trollope",
     genre: "Contemporary",
     isbn: "9780141884233",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "3",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -309,7 +309,7 @@ const booksdata = [
     author: "Albert Camus",
     genre: "Mystrery",
     isbn: "9780394447483",
-    condition: "fair",
+    book_condition: "Fair",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -319,7 +319,7 @@ const booksdata = [
     author: "Alice Walker",
     genre: "Historical fiction",
     isbn: "9780151191536",
-    condition: "poor",
+    book_condition: "Poor",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
@@ -329,7 +329,7 @@ const booksdata = [
     author: "Yann Martel",
     genre: "Adventure",
     isbn: "9780151013838",
-    condition: "good",
+    book_condition: "Good",
     rating: "5",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',

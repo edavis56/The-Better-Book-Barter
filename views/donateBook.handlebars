@@ -24,19 +24,18 @@
     </datalist>
 
     <datalist id="ratings">
-      <option value="*"></option>
-      <option value="**"></option>
-      <option value="***"></option>
-      <option value="****"></option>
-      <option value="*****"></option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+      <option value="5"></option>
     </datalist>
 
     <datalist id="conditions">
-      <option value="*"></option>
-      <option value="**"></option>
-      <option value="***"></option>
-      <option value="****"></option>
-      <option value="*****"></option>
+      <option value="Very Good"></option>
+      <option value="Good"></option>
+      <option value="Fair"></option>
+      <option value="Poor"></option>
     </datalist>
 
     <br />
@@ -46,6 +45,6 @@
     <br /><label for="condition">Condition:</label>
     <input class="form-input" list="conditions" id="donate-condition" />
 
-    <p><button>Donate Book</button></p>
+    <p><button onclick="donateBook()">Donate Book</button></p>
   </form>
 </main>

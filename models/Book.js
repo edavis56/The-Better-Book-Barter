@@ -63,7 +63,7 @@ Book.init(
       type: DataTypes.BIGINT,
       allowNull: true,
     },
-    condition: {
+    book_condition: {
       type: DataTypes.STRING,
       allowNull: true,
     },

@@ -10,12 +10,17 @@ Condition.init(
       primaryKey: true,
       allowNull: false,
     },
+    order: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "condition",
+    modelName: "book_condition",
   }
 );
 
