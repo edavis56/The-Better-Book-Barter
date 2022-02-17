@@ -6,7 +6,12 @@
       <tbody>
         <tr>
           <td><label for="isbn">ISBN:</label></td>
-          <td><input class="form-input" type="text" id="donate-isbn" /></td>
+          <td><input
+              class="form-input"
+              type="text"
+              id="donate-isbn"
+              onfocusout="populateForm()"
+            /></td>
         </tr>
         <tr>
           <td><label for="title">Title:</label></td>
@@ -16,32 +21,31 @@
               type="text"
               id="donate-title"
               required
+              disabled
             /></td>
         </tr>
         <tr>
-          <td><label for="author">Author, First:</label></td>
+          <td><label for="author">Author:</label></td>
           <td><input
               style="width:400px"
               class="form-input"
               type="text"
-              id="donate-author-first"
+              id="donate-author"
               required
-            /></td>
-        </tr>
-        <tr>
-          <td><label for="author">Author, Last:</label></td>
-          <td><input
-              style="width:400px"
-              class="form-input"
-              type="text"
-              id="donate-author-last"
-              required
+              disabled
             /></td>
         </tr>
         <tr>
           <td><label for="genre">Genre:</label></td>
           <td>
-            <select class="form-input" name="genres" id="donate-genre">
+            <select
+              class="form-input"
+              name="genres"
+              id="donate-genre"
+              disabled
+              required
+            >
+              <option value="">select a genre</option>
               {{#each genres as |genre|}}
                 <option value="{{genre.name}}">{{genre.name}}</option>
               {{/each}}
@@ -51,7 +55,14 @@
         <tr>
           <td><label for="rating">Rating:</label></td>
           <td>
-            <select class="form-input" name="ratings" id="donate-rating">
+            <select
+              class="form-input"
+              name="ratings"
+              id="donate-rating"
+              required
+              disabled
+            >
+              <option value="">select a rating</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -63,7 +74,14 @@
         <tr>
           <td><label for="condition">Condition:</label></td>
           <td>
-            <select class="form-input" name="conditions" id="donate-condition">
+            <select
+              class="form-input"
+              name="conditions"
+              id="donate-condition"
+              disabled
+              required
+            >
+              <option value="">select a condition</option>
               {{#each conditions as |condition|}}
                 <option value="{{condition.state}}">{{condition.state}}</option>
               {{/each}}
@@ -75,7 +93,7 @@
         </tr>
         <tr>
           <td></td>
-          <td><button onclick="donateBook()">Donate Book</button></td>
+          <td><button id="donate-btn">Donate Book</button></td>
         </tr>
       </tbody>
     </table>
@@ -83,5 +101,6 @@
 </main>
 
 <style>
-  #donate-book-form td {padding-right: 10px}
+  #donate-book-form td { padding-right: 10px }
 </style>
+<script src="/js/donate.js"></script>
