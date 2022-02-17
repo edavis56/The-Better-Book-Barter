@@ -3,7 +3,7 @@ const applyOrdinalSuffix = require("./../utils/aos");
 
 const router = require("express").Router();
 
-router.get("/user", async (req, res) => {
+router.get("/bookshelf", async (req, res) => {
   // MyBookshelf Page
   let username = "Rich"; // get from req.session
   let user_id = 4; // get from req.session
@@ -60,7 +60,7 @@ router.get("/user", async (req, res) => {
 });
 
 router.get(
-  "/submit",
+  "/donate",
   (
     req,
     res // Submit/Donate a book
@@ -114,8 +114,6 @@ router.get("/book/:id", async (req, res) => {
   }
 });
 
-router.get("*", (req, res) =>
-  res.status(200).send("Routes are currently under development")
-);
+router.get("/", (req, res) => res.render("homepage", { loggedIn: true }));
 
 module.exports = router;
