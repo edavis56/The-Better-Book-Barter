@@ -1,36 +1,18 @@
-const { route } = require(".");
+// const { route } = require("."); //RHO - I've no idea what this is.  Please delete it Austin if you don't either.
+
+const { Book } = require("./../models");
 
 const router = require("express").Router();
 
-router.get("/user", (req, res) => {
+router.get("/user", async (req, res) => {
   // MyBookshelf Page
   let username = "Rich Overholt"; // get from req.session
 
-  let donatedBooks = [
-    {
-      date: "02/10/2022",
-      title: "This is the title of my most recent book",
-      author: "LastName, FirstName",
-    },
-    {
-      date: "02/05/2022",
-      title: "This is the title of my penultimate book",
-      author: "LastName, FirstName",
-    },
-    {
-      date: "02/01/2022",
-      title: "This is the title of my first book",
-      author: "LastName, FirstName",
-    },
-  ];
+  let bookData = await Book.findAll();
+  let donatedBooks = bookData.map((book) => book.get({ plain: true }));
 
-  let receivedBooks = [
-    {
-      date: "02/10/2022",
-      title: "This is the only book I've checked out",
-      author: "LastName, FirstName",
-    },
-  ];
+  bookData = await Book.findAll({ where: { rec_id: 1 } });
+  let receivedBooks = bookData.map((book) => book.get({ plain: true }));
 
   let donatedCount = donatedBooks.length;
   let receivedCount = receivedBooks.length;
@@ -74,7 +56,7 @@ router.get("/condition", (req, res) =>
   res.render("condition", { loggedIn: true })
 );
 
-router.get('/inventory', async (req, res) => {
+router.get("/inventory", async (req, res) => {
   try {
     const bookData = await Book.findAll({});
 

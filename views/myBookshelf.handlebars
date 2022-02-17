@@ -16,7 +16,7 @@
     <ul class="mbs-book-detail">
       {{#each donatedBooks as |book|}}
         <li>
-          {{book.date}}:
+          {{format_date book.created_at}}:
           <span class="mbs-book-title">{{book.title}}</span>,
           <span class="mbs-book-author">{{book.Author}}</span>
         </li>
@@ -29,7 +29,7 @@
     <ul class="mbs-book-detail">
       {{#each receivedBooks as |book|}}
         <li>
-          {{book.date}}:
+          {{format_date book.updated_at}}:
           <span class="mbs-book-title">{{book.title}}</span>,
           <span class="mbs-book-author">{{book.Author}}</span>
         </li>

@@ -43,6 +43,11 @@ Book.init(
         key: "id",
       },
     },
+    donor_dt: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     rec_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -50,6 +55,10 @@ Book.init(
         model: "user",
         key: "id",
       },
+    },
+    rec_dt: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
     },
   },
   {

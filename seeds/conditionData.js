@@ -1,20 +1,20 @@
-const { condition } = require('../models');
+const { Condition } = require("../models");
 
 const conditionData = [
   {
-    state: 'Very Good',
+    state: "Very Good",
   },
   {
-    state: 'Good',
+    state: "Good",
   },
   {
-    state: 'Fair',
+    state: "Fair",
   },
   {
-    state: 'Poor',
+    state: "Poor",
   },
 ];
 
-const seedCondition = () => condition.bulkCreate(conditionData);
+const seedCondition = () => Condition.bulkCreate(conditionData);
 
 module.exports = seedCondition;

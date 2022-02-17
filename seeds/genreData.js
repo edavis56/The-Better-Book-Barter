@@ -1,62 +1,33 @@
-const { genre } = require('../models');
+const { Genre } = require("../models");
 
-const genreData = [
-  {
-    type: 'Fantasy',
-  },
-  {
-    type: 'Adventure',
-  },
-  {
-    type: 'Romace',
-  },
-  {
-    type: 'Contemporary',
-  },
-  {
-    type: 'Dystopian',
-  },
-  {
-    type: 'Mystrery',
-  },
-  {
-    type: 'Horror',
-  },
-  {
-    type: 'Historical fiction',
-  },
-  {
-    type: 'Children',
-  },
-  {
-    type: 'Memoir',
-  },
-  {
-    type: 'Cooking',
-  },
-  {
-    type: 'Art',
-  },
-  {
-    type: 'Self-help',
-  },
-  {
-    type: 'Developmental',
-  },
-  {
-    type: 'Motivational',
-  },
-  {
-    type: 'Health',
-  },
-  {
-    type: 'History',
-  },
-  {
-    type: 'Humor',
-  },
+const genreNames = [
+  "Fantasy",
+  "Adventure",
+  "Romance",
+  "Contemporary",
+  "Dystopian",
+  "Mystery",
+  "Horror",
+  "Historical fiction",
+  "Children",
+  "Memoir",
+  "Cooking",
+  "Art",
+  "Self-help",
+  "Developmental",
+  "Motivational",
+  "Health",
+  "History",
+  "Humor",
 ];
 
-const seedGenre = () => genre.bulkCreate(genreData);
+const genreData = genreNames.map((name) => {
+  let output = { name };
+  return output;
+});
+
+console.log(genreData);
+
+const seedGenre = () => Genre.bulkCreate(genreData);
 
 module.exports = seedGenre;
