@@ -1,29 +1,34 @@
-// const { route } = require("."); //RHO - I've no idea what this is.  Please delete it Austin if you don't either.
-
 const { Book } = require("./../models");
+const applyOrdinalSuffix = require("./../utils/aos");
 
 const router = require("express").Router();
 
 router.get("/user", async (req, res) => {
   // MyBookshelf Page
-  let username = "Rich Overholt"; // get from req.session
+  let username = "Rich"; // get from req.session
+  let user_id = 4; // get from req.session
 
-  let bookData = await Book.findAll();
+  let bookData = await Book.findAll({ where: { donor_id: user_id } });
   let donatedBooks = bookData.map((book) => book.get({ plain: true }));
 
-  bookData = await Book.findAll({ where: { rec_id: 1 } });
+  bookData = await Book.findAll({ where: { rec_id: user_id } });
   let receivedBooks = bookData.map((book) => book.get({ plain: true }));
 
   let donatedCount = donatedBooks.length;
   let receivedCount = receivedBooks.length;
   let availableCount = donatedCount - receivedCount;
 
+  let donorPlace = await Book.getDonorPlace(donatedCount);
+  donorPlace = applyOrdinalSuffix(donorPlace);
+
+  let donorTotal = await Book.getDonorTotal();
+
   let rankings = [
     {
-      info: `# of books donated: ${donatedCount} (5th / 17 users)`,
+      info: `# of books donated: ${donatedCount} (${donorPlace} most out ${donorTotal} donors)`,
     },
     {
-      info: `# of books received: ${receivedCount} (16th / 17 users)`,
+      info: `# of books received: ${receivedCount} (16th / 17 receivers)`,
     },
     {
       info: `Average rating of books donated: 3.26 (5th / 17 users)`,
@@ -58,9 +63,9 @@ router.get("/condition", (req, res) =>
 
 router.get("/inventory", async (req, res) => {
   try {
-    const bookData = await Book.findAll({ 
-      group: ['isbn']
-     });
+    const bookData = await Book.findAll({
+      group: ["isbn"],
+    });
 
     const books = bookData.map((book) => book.get({ plain: true }));
 

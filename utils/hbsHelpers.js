@@ -1,8 +1,7 @@
+const { add, format } = require("date-fns");
+const EST = 5; // EST is 5 hours ahead of GMT.
+
 module.exports = {
-  format_date: (date) => {
-    console.log("*************************************");
-    console.log(date);
-    console.log("*************************************");
-    return "01/02/03";
-  },
+  format_date: (date) =>
+    format(add(new Date(date), { hours: EST }), "MMM d, yyyy"),
 };

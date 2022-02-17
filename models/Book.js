@@ -1,7 +1,19 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Book extends Model {}
+class Book extends Model {
+  static async getDonorPlace(donations) {
+    const queryString = `SELECT count(1) AS place FROM (SELECT donor_id, count(1) AS count FROM book GROUP BY donor_id HAVING count > ${donations}) AS temp`;
+    let [results, metadata] = await sequelize.query(queryString);
+    return results[0].place + 1;
+  }
+
+  static async getDonorTotal() {
+    const queryString = `SELECT count(1) AS total FROM (SELECT DISTINCT donor_id FROM book) AS temp`;
+    let [results, metadata] = await sequelize.query(queryString);
+    return results[0].total;
+  }
+}
 
 Book.init(
   {

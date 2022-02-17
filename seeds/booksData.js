@@ -1,6 +1,8 @@
 const { Book } = require("../models");
 const sequelize = require("../config/connection");
 
+const userCount = 4; // number of users created
+
 const booksdata = [
   {
     title: "The Adventures of Huckleberry Finn",
@@ -338,16 +340,14 @@ const seedBooks = async () => {
   await Book.bulkCreate(booksdata);
 
   // assign a variety of donor_ids
-  let queryString = "UPDATE book SET donor_id = 1 + (id % 3)";
+  let queryString = `UPDATE book SET donor_id = 1 + (id % ${userCount})`;
   console.log(queryString);
   let [results, metadata] = await sequelize.query(queryString);
   console.log(metadata);
   console.log(results);
 
   // assign a variety of rec_ids
-  queryString = `UPDATE book SET rec_id = ${
-    1 + Math.floor(Math.random() * 3)
-  }, rec_dt = CURRENT_DATE() WHERE id < 20`;
+  queryString = `UPDATE book SET rec_id = FLOOR(RAND() * ${userCount} + 1), rec_dt = CURRENT_DATE() WHERE id < 20`;
   console.log(queryString);
   [results, metadata] = await sequelize.query(queryString);
   console.log(metadata);
