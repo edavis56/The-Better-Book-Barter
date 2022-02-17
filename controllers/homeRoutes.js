@@ -23,17 +23,29 @@ router.get("/user", async (req, res) => {
 
   let donorTotal = await Book.getDonorTotal();
 
-  let rankings = [
-    {
-      info: `# of books donated: ${donatedCount} (${donorPlace} most out ${donorTotal} donors)`,
+  let recPlace = await Book.getRecPlace(receivedCount);
+  recPlace = applyOrdinalSuffix(recPlace);
+
+  let recTotal = await Book.getRecTotal();
+
+  let avgDonatedRatings = await Book.getAvgDonatedRatings(user_id);
+  let avgDonatedPlace = await Book.getAvgDonatedPlace(avgDonatedRatings);
+  avgDonatedPlace = applyOrdinalSuffix(avgDonatedPlace);
+
+  let ranking = {
+    donated: {
+      place: donorPlace,
+      totalDonors: donorTotal,
     },
-    {
-      info: `# of books received: ${receivedCount} (16th / 17 receivers)`,
+    received: {
+      place: recPlace,
+      totalReceivers: recTotal,
     },
-    {
-      info: `Average rating of books donated: 3.26 (5th / 17 users)`,
+    averages: {
+      donatedRatings: avgDonatedRatings,
+      donatedPlace: avgDonatedPlace,
     },
-  ];
+  };
 
   res.render("myBookshelf", {
     username,
@@ -42,7 +54,7 @@ router.get("/user", async (req, res) => {
     donatedCount,
     receivedCount,
     availableCount,
-    rankings,
+    ranking,
     loggedIn: true,
   });
 });
