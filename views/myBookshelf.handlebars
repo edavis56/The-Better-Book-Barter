@@ -5,10 +5,7 @@
   <div id="mbs-user-info">
     <h2 class="mbs-header">User Information</h2>
     <p>{{username}}</p>
-    <p><button>Update name</button></p>
-    <p><button>Update password</button></p>
-    <p>Available Books #{{availableCount}}
-      ({{donatedCount}}-{{receivedCount}})</p>
+    <p>Available Books: {{availableCount}}</p>
   </div>
 
   <div id="mbs-donated-books">
@@ -16,9 +13,10 @@
     <ul class="mbs-book-detail">
       {{#each donatedBooks as |book|}}
         <li>
-          {{book.date}}:
-          <span class="mbs-book-title">{{book.title}}</span>,
-          <span class="mbs-book-author">{{book.Author}}</span>
+          <p>{{format_date book.rec_dt}}:
+            <span class="mbs-book-author">{{book.author}}</span><br />
+            <span class="mbs-book-title">{{book.title}}</span>
+          </p>
         </li>
       {{/each}}
     </ul>
@@ -29,9 +27,10 @@
     <ul class="mbs-book-detail">
       {{#each receivedBooks as |book|}}
         <li>
-          {{book.date}}:
-          <span class="mbs-book-title">{{book.title}}</span>,
-          <span class="mbs-book-author">{{book.Author}}</span>
+          <p>{{format_date book.rec_dt}}:
+            <span class="mbs-book-author">{{book.author}}</span><br />
+            <span class="mbs-book-title">{{book.title}}</span>
+          </p>
         </li>
       {{/each}}
     </ul>

@@ -1,27 +1,22 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class condition extends Model {}
+class Condition extends Model {}
 
-condition.init(
+Condition.init(
   {
-     id: {
-       type: DataTypes.INTEGER,
-       allowNull: false,
-       primaryKey: true,
-       autoIncrement: true,
-     },
-     state: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    state: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false,
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'condition',
-  },
+    modelName: "condition",
+  }
 );
 
-module.exports = condition;
+module.exports = Condition;
