@@ -1,50 +1,87 @@
 <main class="mbs-body">
   <form class="form" id="donate-book-form">
     <h2>Enter information for the book you are donating:</h2>
-    <label for="isbn">ISBN:</label>
-    <input class="form-input" type="number" id="donate-isbn" />
-    <br />
-    <label for="title">Title:</label>
-    <input class="form-input" type="text" id="donate-title" />
-    <br />
-    <label for="author">Author:</label>
-    First:
-    <input class="form-input" type="text" id="donate-author-first" />
-    Last:
-    <input class="form-input" type="text" id="donate-author-last" />
-    <br />
-    <label for="genre">Genre:</label>
-    <input class="form-input" list="genres" id="donate-genre" />
 
-    <datalist id="genres">
-      <option value="Scary"></option>
-      <option value="Funny"></option>
-      <option value="Drama"></option>
-      <option value="Sci-Fi"></option>
-    </datalist>
-
-    <datalist id="ratings">
-      <option value="1"></option>
-      <option value="2"></option>
-      <option value="3"></option>
-      <option value="4"></option>
-      <option value="5"></option>
-    </datalist>
-
-    <datalist id="conditions">
-      <option value="Very Good"></option>
-      <option value="Good"></option>
-      <option value="Fair"></option>
-      <option value="Poor"></option>
-    </datalist>
-
-    <br />
-    <label for="rating">Rating:</label>
-    <input class="form-input" list="ratings" id="donate-rating" />
-
-    <br /><label for="condition">Condition:</label>
-    <input class="form-input" list="conditions" id="donate-condition" />
-
-    <p><button onclick="donateBook()">Donate Book</button></p>
+    <table style="width: 100%">
+      <tbody>
+        <tr>
+          <td><label for="isbn">ISBN:</label></td>
+          <td><input class="form-input" type="text" id="donate-isbn" /></td>
+        </tr>
+        <tr>
+          <td><label for="title">Title:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="donate-title"
+              required
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="author">Author, First:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="donate-author-first"
+              required
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="author">Author, Last:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="donate-author-last"
+              required
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="genre">Genre:</label></td>
+          <td>
+            <select class="form-input" name="genres" id="donate-genre">
+              {{#each genres as |genre|}}
+                <option value="{{genre.name}}">{{genre.name}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="rating">Rating:</label></td>
+          <td>
+            <select class="form-input" name="ratings" id="donate-rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="condition">Condition:</label></td>
+          <td>
+            <select class="form-input" name="conditions" id="donate-condition">
+              {{#each conditions as |condition|}}
+                <option value="{{condition.state}}">{{condition.state}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button onclick="donateBook()">Donate Book</button></td>
+        </tr>
+      </tbody>
+    </table>
   </form>
 </main>
+
+<style>
+  #donate-book-form td {padding-right: 10px}
+</style>

@@ -1,7 +1,9 @@
-const { Book } = require("./../models");
+const { Book, Condition, Genre } = require("./../models");
 const applyOrdinalSuffix = require("./../utils/aos");
 
 const router = require("express").Router();
+
+router.get("/", (req, res) => res.render("homepage", { loggedIn: true }));
 
 router.get("/bookshelf", async (req, res) => {
   // MyBookshelf Page
@@ -59,13 +61,18 @@ router.get("/bookshelf", async (req, res) => {
   });
 });
 
-router.get(
-  "/donate",
-  (
-    req,
-    res // Submit/Donate a book
-  ) => res.render("donateBook", { loggedIn: true })
-);
+// Submit/Donate a book
+router.get("/donate", async (req, res) => {
+  let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
+  let genres = genreData.map((genre) => genre.get({ plain: true }));
+
+  let conditionData = await Condition.findAll({ order: [["sequence", "ASC"]] });
+  let conditions = conditionData.map((condition) =>
+    condition.get({ plain: true })
+  );
+
+  res.render("donateBook", { genres, conditions, loggedIn: true });
+});
 
 router.get("/genre", (req, res) => res.render("genre", { loggedIn: true }));
 
@@ -113,7 +120,5 @@ router.get("/book/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get("/", (req, res) => res.render("homepage", { loggedIn: true }));
 
 module.exports = router;

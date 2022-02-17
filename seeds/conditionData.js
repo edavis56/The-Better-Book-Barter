@@ -3,19 +3,19 @@ const { Condition } = require("../models");
 const conditionData = [
   {
     state: "Very Good",
-    order: 1,
+    sequence: 1,
   },
   {
     state: "Good",
-    order: 2,
+    sequence: 2,
   },
   {
     state: "Fair",
-    order: 3,
+    sequence: 3,
   },
   {
     state: "Poor",
-    order: 4,
+    sequence: 4,
   },
 ];
 

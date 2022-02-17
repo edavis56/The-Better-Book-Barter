@@ -10,7 +10,7 @@ Condition.init(
       primaryKey: true,
       allowNull: false,
     },
-    order: {
+    sequence: {
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: true,
