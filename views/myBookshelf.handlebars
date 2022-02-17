@@ -38,8 +38,20 @@
 
   <div id="mbs-rankings">
     <h2 class="mbs-header">Ranking Data</h2>
-    {{#each rankings as |ranking|}}
-      <p>{{ranking.info}}</p>
-    {{/each}}
+    <p># of books donated:
+      {{donatedCount}}
+      ({{ranking.donated.place}}
+      of
+      {{ranking.donated.totalDonors}})</p>
+    <p># of books received:
+      {{receivedCount}}
+      ({{ranking.received.place}}
+      of
+      {{ranking.received.totalReceivers}})</p>
+    <p>Average rating of books donated:
+      {{ranking.averages.donatedRatings}}
+      ({{ranking.averages.donatedPlace}}
+      of
+      {{ranking.donated.totalDonors}})</p>
   </div>
 </main>
