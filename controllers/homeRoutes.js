@@ -16,9 +16,11 @@ router.get("/", (req, res) =>
   res.render("homepage", { loggedIn: req.session.loggedIn })
 );
 
-router.get("/admin", (req, res) =>
-  res.render("admin", { loggedIn: req.session.loggedIn })
-);
+router.get("/admin", async (req, res) => {
+  let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
+  let genres = genreData.map((genre) => genre.get({ plain: true }));
+  res.render("admin", { genres, loggedIn: req.session.loggedIn })
+});
 
 // MyBookshelf Page
 router.get("/bookshelf", withAuth, async (req, res) => {

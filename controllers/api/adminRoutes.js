@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { Genre, Condition } = require("../../models");
+const { Genre} = require("../../models");
 
 // Create genre
-router.post("/admin", (req, res) => {
+router.post("/genre", (req, res) => {
   Genre.create({
-    name: req.body.name,
+    name: req.body.genre,
   }).then((genreData) => {
     req.session.save(() => {
       req.session.name = genreData.name;
@@ -14,17 +14,21 @@ router.post("/admin", (req, res) => {
   });
 });
 
-// Create condition
-router.post("/admin", (req, res) => {
-  Condition.create({
-    state: req.body.name,
-  }).then((conditionData) => {
-    req.session.save(() => {
-      req.session.state = conditionData.name;
-
-      res.json(conditionData);
+router.delete("/genre", (req, res) => {
+  //guard clause
+  if (!req.body.genre_list){
+    res.status(400).send("No genre exist")
+    return 
+  }
+  Genre.destroy({
+    where:{name: req.body.genre_list,}
+  }).then((response) => {
+    if (response){
+      res.status(200).send("Delete successful")
+    } else {
+      res.status(500).send("Error deleting record")
+    }
     });
   });
-});
 
 module.exports = router;
