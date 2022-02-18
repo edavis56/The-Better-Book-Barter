@@ -15,24 +15,9 @@
             <div>
             <select class="mt-2" id="select-genre">
                 <option value="" disabled selected>Select Genre</option>
-                <option value="Adventure">Adventure</option>
-                <option value="Art">Art</option>
-                <option value="Children">Children</option>
-                <option value="Contemporary">Contemporary</option>
-                <option value="Cooking">Cooking</option>
-                <option value="Developmental">Developmental</option>
-                <option value="Dystopian">Dystopian</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Health">Health</option>
-                <option value="Historical">Historical Fiction</option>
-                <option value="History">History</option>
-                <option value="Horror">Horror</option>
-                <option value="Humor">Humor</option>
-                <option value="Memoir">Memoir</option>
-                <option value="Motivational">Motivational</option>
-                <option value="Mystery">Mystery</option>
-                <option value="Romance">Romance</option>
-                <option value="Self-Help">Self-Help</option>
+                {{#each genres as |genre|}}
+                <option value="{{genre.name}}">{{genre.name}}</option>
+                {{/each}}
             </select>
             </div>
           </div>
@@ -68,9 +53,14 @@
         </div>
       </div>
 
+      <div class="container d-grid gap-2 bg-dark mt-1 pb-1 pt-1">
+        <button class="btn btn-primary" id="search-bar">Search</button>
+      </div>
+
       <div class="container mt-1 bg-dark pt-1">
         <div class="row">
-    
+        {{#each books as |book|}}
+        {{> book-info book}}
+        {{/each}}
         </div>
-        
       </div>

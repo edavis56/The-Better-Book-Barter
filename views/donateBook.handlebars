@@ -45,7 +45,7 @@
               disabled
               required
             >
-              <option value="">select a genre</option>
+              <option value="" disabled selected>select a genre</option>
               {{#each genres as |genre|}}
                 <option value="{{genre.name}}">{{genre.name}}</option>
               {{/each}}
@@ -62,7 +62,7 @@
               required
               disabled
             >
-              <option value="">select a rating</option>
+              <option value="" disabled selected>select a rating</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -81,7 +81,7 @@
               disabled
               required
             >
-              <option value="">select a condition</option>
+              <option value="" disabled selected>select a condition</option>
               {{#each conditions as |condition|}}
                 <option value="{{condition.state}}">{{condition.state}}</option>
               {{/each}}
