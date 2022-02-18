@@ -52,7 +52,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const newBook = await Book.create({
       ...req.body,
-      user_id: req.session.user_id,
+      donor_id: req.session.user_id,
     });
 
     res.status(200).json(newBook);

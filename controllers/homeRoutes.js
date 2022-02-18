@@ -5,6 +5,9 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => res.render("homepage", { loggedIn: true }));
 
+router.get("/admin", (req, res) => res.render("admin", {loggedIn: true}));
+
+
 router.get("/bookshelf", async (req, res) => {
   // MyBookshelf Page
   let username = "Rich"; // get from req.session
