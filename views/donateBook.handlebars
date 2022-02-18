@@ -11,6 +11,7 @@
               type="text"
               id="donate-isbn"
               onfocusout="populateForm()"
+              value="{{book.isbn}}"
             /></td>
         </tr>
         <tr>
@@ -20,6 +21,7 @@
               class="form-input"
               type="text"
               id="donate-title"
+              value="{{book.title}}"
               required
               disabled
             /></td>
@@ -31,6 +33,7 @@
               class="form-input"
               type="text"
               id="donate-author"
+              value="{{book.author}}"
               required
               disabled
             /></td>
@@ -42,10 +45,10 @@
               class="form-input"
               name="genres"
               id="donate-genre"
-              disabled
+              {{#if book}}enabled{{else}}disabled{{/if}}
               required
             >
-              <option value="" disabled selected>select a genre</option>
+              <option value="" {{#if book}}enabled{{else}}disabled{{/if}} selected>select a genre</option>
               {{#each genres as |genre|}}
                 <option value="{{genre.name}}">{{genre.name}}</option>
               {{/each}}
@@ -60,7 +63,7 @@
               name="ratings"
               id="donate-rating"
               required
-              disabled
+              {{#if book}}enabled{{else}}disabled{{/if}}
             >
               <option value="" disabled selected>select a rating</option>
               <option value="1">1</option>
@@ -78,7 +81,7 @@
               class="form-input"
               name="conditions"
               id="donate-condition"
-              disabled
+              {{#if book}}enabled{{else}}disabled{{/if}}
               required
             >
               <option value="" disabled selected>select a condition</option>

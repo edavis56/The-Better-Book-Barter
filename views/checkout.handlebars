@@ -1,0 +1,102 @@
+<main class="mbs-body">
+  <form class="form" id="{{book.id}}">
+    <h2>Confirm the information for the book you are receiving:</h2>
+
+    <table style="width: 100%">
+      <tbody>
+        <tr>
+          <td><label for="isbn">ISBN:</label></td>
+          <td><input
+              class="form-input"
+              type="text"
+              id="receive-isbn"
+              value="{{book.isbn}}"
+              required
+              disabled
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="title">Title:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="receive-title"
+              value="{{book.title}}"
+              required
+              disabled
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="author">Author:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="receive-author"
+              value="{{book.author}}"
+              required
+              disabled
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="genre">Genre:</label></td>
+          <td>
+            <input
+              class="form-input"
+              name="genres"
+              type="text"
+              id="receive-genre"
+              value="{{book.genre}}"
+              required
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="rating">Rating:</label></td>
+          <td>
+            <input
+              class="form-input"
+              name="ratings"
+              type="text"
+              id="receive-rating"
+              value="{{book.rating}}"
+              required
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="condition">Condition:</label></td>
+          <td>
+            <input
+              class="form-input"
+              name="condition"
+              type="text"
+              id="receive-condition"
+              value="{{book.book_condition}}"
+              required
+              disabled
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button id="receive-btn">Confirm Book Receipt</button><button
+              id="cancel-btn"
+            >Cancel</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</main>
+
+<style>
+  #{{book.id}}
+  td { padding-right: 10px }
+</style>
+<script src="/js/receive.js"></script>

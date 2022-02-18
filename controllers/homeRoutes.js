@@ -1,26 +1,31 @@
-const { Book, Condition, Genre } = require("./../models");
-const applyOrdinalSuffix = require("./../utils/aos");
+const { User, Book, Condition, Genre } = require("./../models");
+const { withAuth, applyOrdinalSuffix } = require("./../utils");
 
 const router = require("express").Router();
 
 //login dont know if this will work
 router.get("/login", (req, res) => {
-  //  if (req.session.loggedIn) {
-  //     res.redirect('/');
-  //     return;
-  //   }
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
   res.render("login", { loggedIn: false });
 });
 
-router.get("/", (req, res) => res.render("homepage", { loggedIn: true }));
+router.get("/", (req, res) =>
+  res.render("homepage", { loggedIn: req.session.loggedIn })
+);
 
-router.get("/admin", (req, res) => res.render("admin", {loggedIn: true}));
+router.get("/admin", (req, res) =>
+  res.render("admin", { loggedIn: req.session.loggedIn })
+);
 
-
-router.get("/bookshelf", async (req, res) => {
-  // MyBookshelf Page
-  let username = "Rich"; // get from req.session
-  let user_id = 4; // get from req.session
+// MyBookshelf Page
+router.get("/bookshelf", withAuth, async (req, res) => {
+  let user_id = req.session.user_id;
+  let userData = await User.findByPk(user_id);
+  let userInfo = userData.get({ plain: true });
+  let username = userInfo.username;
 
   let bookData = await Book.findAll({ where: { donor_id: user_id } });
   let donatedBooks = bookData.map((book) => book.get({ plain: true }));
@@ -69,12 +74,40 @@ router.get("/bookshelf", async (req, res) => {
     receivedCount,
     availableCount,
     ranking,
-    loggedIn: true,
+    loggedIn: req.session.loggedIn,
   });
 });
 
+// Receive a book
+router.get("/checkout", withAuth, async (req, res) => {
+  if (!req?.query?.id) {
+    console.log("CHECKOUT MUST BE CALLED WITH '?id=n");
+    res.render("homepage", { loggedIn: req.session.loggedIn });
+    return;
+  }
+
+  let bookData = await Book.findByPk(req.query.id);
+  book = bookData?.get({ plain: true });
+
+  if (!book) {
+    console.log("CANNOT CHECKOUT BOOKS THAT WE DONT HAVE IN DB: " + book.id);
+    res.render("homepage", { loggedIn: req.session.loggedIn });
+    return;
+  }
+
+  book.stockCount = await Book.getStockCount(book.isbn);
+
+  if (book.stockCount < 1) {
+    console.log("CANNOT CHECKOUT BOOKS THAT WE DONT HAVE IN STOCK: " + book.id);
+    res.render("homepage", { loggedIn: req.session.loggedIn });
+    return;
+  }
+
+  res.render("checkout", { book, loggedIn: req.session.loggedIn });
+});
+
 // Submit/Donate a book
-router.get("/donate", async (req, res) => {
+router.get("/donate", withAuth, async (req, res) => {
   let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
   let genres = genreData.map((genre) => genre.get({ plain: true }));
 
@@ -83,25 +116,40 @@ router.get("/donate", async (req, res) => {
     condition.get({ plain: true })
   );
 
-  res.render("donateBook", { genres, conditions, loggedIn: true });
+  let book;
+
+  if (req?.query?.id) {
+    let bookData = await Book.findByPk(req.query.id);
+    book = bookData?.get({ plain: true });
+
+    book.stockCount = await Book.getStockCount(book.isbn);
+  }
+
+  res.render("donateBook", {
+    book,
+    genres,
+    conditions,
+    loggedIn: req.session.loggedIn,
+  });
 });
 
-router.get("/genre", (req, res) => res.render("genre", { loggedIn: true }));
-
-router.get("/condition", (req, res) =>
-  res.render("condition", { loggedIn: true })
+router.get("/genre", (req, res) =>
+  res.render("genre", { loggedIn: req.session.loggedIn })
 );
 
-router.get("/inventory", async (req, res) => {
+router.get("/condition", (req, res) =>
+  res.render("condition", { loggedIn: req.session.loggedIn })
+);
+
+router.get("/inventory", withAuth, async (req, res) => {
   try {
     let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
     let genres = genreData.map((genre) => genre.get({ plain: true }));
 
     let whereClause = {};
-    
 
     if (req.query?.genre) {
-      whereClause.genre = req.query.genre
+      whereClause.genre = req.query.genre;
     }
     console.log(whereClause);
     console.log(req.query.genre);
@@ -115,14 +163,14 @@ router.get("/inventory", async (req, res) => {
     res.render("book-inventory", {
       books,
       genres,
-      loggedIn: true,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/book/:id", async (req, res) => {
+router.get("/book/:id", withAuth, async (req, res) => {
   try {
     const bookData = await Book.findByPk(req.params.id);
     // May want to include user data here?
@@ -139,7 +187,7 @@ router.get("/book/:id", async (req, res) => {
 
     res.render("book-details", {
       ...book,
-      loggedIn: true,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);

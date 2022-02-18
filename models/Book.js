@@ -1,27 +1,27 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, literal } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Book extends Model {
   static async getDonorPlace(donations) {
-    const queryString = `SELECT count(1) AS place FROM (SELECT donor_id, count(1) AS count FROM book GROUP BY donor_id HAVING count > ${donations}) AS temp`;
+    const queryString = `SELECT count(*) AS place FROM (SELECT donor_id, count(1) AS count FROM book GROUP BY donor_id HAVING count > ${donations}) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].place + 1;
   }
 
   static async getDonorTotal() {
-    const queryString = `SELECT count(1) AS total FROM (SELECT DISTINCT donor_id FROM book) AS temp`;
+    const queryString = `SELECT count(*) AS total FROM (SELECT DISTINCT donor_id FROM book) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].total;
   }
 
   static async getRecPlace(receiveCount) {
-    const queryString = `SELECT count(1) AS place FROM (SELECT rec_id, count(1) AS count FROM book GROUP BY rec_id HAVING count > ${receiveCount}) AS temp`;
+    const queryString = `SELECT count(*) AS place FROM (SELECT rec_id, count(1) AS count FROM book GROUP BY rec_id HAVING count > ${receiveCount}) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].place + 1;
   }
 
   static async getRecTotal() {
-    const queryString = `SELECT count(1) AS total FROM (SELECT DISTINCT rec_id FROM book) AS temp`;
+    const queryString = `SELECT count(*) AS total FROM (SELECT DISTINCT rec_id FROM book) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].total;
   }
@@ -33,9 +33,15 @@ class Book extends Model {
   }
 
   static async getAvgDonatedPlace(ratingAvg) {
-    const queryString = `SELECT count(1) AS place FROM (SELECT donor_id, avg(rating) AS rating FROM book GROUP BY donor_id HAVING rating > ${ratingAvg}) AS temp`;
+    const queryString = `SELECT count(*) AS place FROM (SELECT donor_id, avg(rating) AS rating FROM book GROUP BY donor_id HAVING rating > ${ratingAvg}) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].place + 1;
+  }
+
+  static async getStockCount(isbn) {
+    const queryString = `SELECT count(*) AS stockCount FROM book WHERE isbn = ${isbn} and rec_id is NULL`;
+    let [results, metadata] = await sequelize.query(queryString);
+    return results[0].stockCount;
   }
 }
 
@@ -96,6 +102,14 @@ Book.init(
       type: DataTypes.DATEONLY,
       allowNull: true,
     },
+
+    // availableQuantity: {
+    //   type: Sequelize.VIRTUAL(Sequelize.DECIMAL,
+    //     [Sequelize.literal(`(COALESCE((select article."stockQuantity"
+    //     - sum("orderRows"."orderedQuantity") from "orderRows"
+    //     left join orders on orders.id = "orderRows"."orderId"
+    //     where "orderRows"."articleId" = article.id
+    //     and orders."state" <> 'fullfilled'), 0)) as "availableQuantity"`), "availableQuantity"]),
   },
   {
     sequelize,

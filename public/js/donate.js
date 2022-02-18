@@ -7,12 +7,14 @@ const genreEl = document.getElementById("donate-genre");
 const ratingEl = document.getElementById("donate-rating");
 const conditionEl = document.getElementById("donate-condition");
 
+// const testIsbn = 0618153985;
+
 let isbn;
 
 async function populateForm() {
-  //   if (isbn && isbn === isbnEl.value) {
-  //     return;
-  //   } // no changes made
+  if (isbn && isbn === isbnEl.value) {
+    return;
+  } // no changes made
 
   isbn = isbnEl?.value;
 
@@ -20,27 +22,24 @@ async function populateForm() {
     return alert("Please enter a valid ISBN");
   }
 
-  //   const response = await fetch(
-  //     new Request(
-  //       "https://openlibrary.org/api/books?bibkeys=ISBN:0618153985&jscmd=data&format=json"
-  //     )
-  //   );
+  const response = await fetch(
+    new Request(
+      `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=data&format=json`
+    )
+  );
 
-  //   if (!response.ok) {
-  //     return newIsbn();
-  //   }
+  if (!response.ok) {
+    return newIsbn();
+  }
 
-  //   const data = await response.json();
+  const data = await response.json();
 
-  //   if (!response.ok) {
-  //     return newIsbn();
-  //   }
+  if (!response.ok) {
+    return newIsbn();
+  }
 
-  //   titleEl.value = data[Object.keys(data)[0]].title;
-  //   authorEl.value = data[Object.keys(data)[0]].authors[0].name;
-
-  titleEl.value = "Fake title";
-  authorEl.value = "Fake Author";
+  titleEl.value = data[Object.keys(data)[0]].title;
+  authorEl.value = data[Object.keys(data)[0]].authors[0].name;
 
   titleEl.disabled = true;
   authorEl.disabled = true;
@@ -91,23 +90,34 @@ const donateBook = async (event) => {
       " condition: " +
       condition
   );
-  console.log(
-    "Donate doesn't actually work yet, but all the validation should (except the API which I've turned off so I don't issue too many queries!"
-  );
 
-  // if (formEl.checkValidity()) {
-  //   const response = await fetch("./api/books/", {
-  //     method: "POST",
-  //     body: JSON.stringify({ isbn, title, author, genre, rating, book_condition: condition }),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
+  if (formEl.checkValidity()) {
+    const response = await fetch("./api/books/", {
+      method: "POST",
+      body: JSON.stringify({
+        isbn,
+        title,
+        author,
+        genre,
+        rating,
+        book_condition: condition,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-  //   if (response.ok) {
-  //     alert("response is good!")
-  //     return;
-  //   }
+    if (response.ok) {
+      alert("Thank you, your book has been donated");
+      window.location.href = "./bookshelf";
+      return;
+    }
 
-  //   alert("Failure!");
+    alert("An error has occurred, please try again.");
+  }
 };
-
 submitEl.addEventListener("click", donateBook);
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete" && isbnEl.value) {
+    populateForm();
+  }
+};
