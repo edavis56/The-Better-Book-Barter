@@ -82,6 +82,9 @@ router.get("/condition", (req, res) =>
 
 router.get("/inventory", async (req, res) => {
   try {
+    let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
+    let genres = genreData.map((genre) => genre.get({ plain: true }));
+
     const bookData = await Book.findAll({
       group: ["isbn"],
     });
@@ -89,7 +92,8 @@ router.get("/inventory", async (req, res) => {
     const books = bookData.map((book) => book.get({ plain: true }));
 
     res.render("book-inventory", {
-      ...books,
+      books,
+      genres,
       loggedIn: true,
     });
   } catch (err) {
