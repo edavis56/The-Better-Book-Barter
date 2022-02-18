@@ -3,27 +3,36 @@ async function searchBook(event) {
 
     const rating = document.querySelector('#select-rating').value;
     const genre = document.querySelector('#select-genre').value;
+    const inStock = document.querySelector('#in-stock-box').checked;
+    const noStock = document.querySelector('#no-stock-box').checked;
 
-    let queryString = "";
+    console.log(inStock);
+    console.log(noStock);
+
+
+    let queryString = "inStock=" + inStock + "&noStock=" + noStock;
 
     console.log(rating);
     console.log(genre);
     
+    
 
     if (rating) {
-        queryString += "rating=" + rating;
+        queryString += "&rating=" + rating;
     }
 
     if (genre) {
-        queryString += (rating) ? "&" : "";
-        queryString += "genre=" + genre;
+        queryString += "&genre=" + genre;
     }
+
+    
      console.log(queryString);
 
      if (queryString) {
          document.location.replace(`/inventory?` + queryString)
      } else {
          alert(`No search Criteria entered`);
+         document.location.replace(`/inventory`);
      }
     
 

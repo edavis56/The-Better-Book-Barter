@@ -3,7 +3,7 @@
     </div>
 
     <div class="container mt-2">
-        <a href="./../inventory"><button class="btn btn-dark back-to-inventory"><-- Back to Inventory</button></button></a>
+        <a href="./../inventory?inStock=true&noStock=true"><button class="btn btn-dark back-to-inventory"><-- Back to Inventory</button></button></a>
     </div>
 
     <div class="container mt-2">
@@ -15,6 +15,7 @@
               <h5 class="card-title">{{title}}</h5>
               <p class="card-text">{{genre}}</p>
               <p class="card-text">Rating: {{rating}}/5</p>
+              <p class="card-text">Condition: {{book_condition}}</p>
               {{#if stockCount}}
               <a href="./../checkout?id={{id}}" class="btn btn-success check-out" id="check-out">Check Out</a>
               {{/if}}

@@ -4,12 +4,12 @@
     <form id="search-parameters">
     <div class="container bg-dark text-white mt-1 pb-1">
         <div class="row align-items-start">
-          <div class="col">
+          {{!-- <div class="col">
             Search: <input class ="mt-2" type="text" placeholder="Title" id="search-title">
           </div>
           <div class="col">
             Author: <input class ="mt-2" type="text" placeholder="Name" id="search-author">
-          </div>
+          </div> --}}
           <div class="col">
             Genre: 
             <div>
@@ -38,13 +38,13 @@
           <div class="col">
             Inventory Status:
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="in-stock-box" checked>
+              <input class="form-check-input" type="checkbox" value="" id="in-stock-box" {{#if isInStock}}checked{{/if}}>
               <label class="form-check-label" for="flexCheckDefault">
                 In Stock
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="no-stock-box" checked>
+              <input class="form-check-input" type="checkbox" value="" id="no-stock-box" {{#if isNoStock}}checked{{/if}}>
               <label class="form-check-label" for="flexCheckChecked">
                 Out of Stock
               </label>
