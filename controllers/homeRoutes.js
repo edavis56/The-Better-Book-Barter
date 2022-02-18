@@ -150,19 +150,57 @@ router.get("/inventory", withAuth, async (req, res) => {
 
     let whereClause = {};
 
-    if (req.query?.genre) {
+    // if(req.query?.rating) {
+    //   whereClause.rating = req.query.rating;
+    // } else if (req.query?.genre) {
+    //   whereClause.genre = req.query.genre;
+    // } 
+    // if (req.query?.rating && req.query?.genre) {
+    //   whereClause.query = (req.query.rating && req.query.genre);
+    // }
+    if(req.query.genre) {
       whereClause.genre = req.query.genre;
+    } 
+
+    if (req.query.rating) {
+      whereClause.rating = req.query.rating;
     }
+
+
     console.log(whereClause);
+    console.log(req.query.rating);
     console.log(req.query.genre);
+    console.log(req.query.inStock);
+    console.log(req.query.noStock);
+
+    let books = [];
+
+    if (req.query.inStock === "true" || req.query.noStock === "true") {
+
     const bookData = await Book.findAll({
       where: whereClause,
       group: ["isbn"],
     });
 
-    const books = bookData.map((book) => book.get({ plain: true }));
+    books = bookData.map((book) => book.get({ plain: true }));
+    // books.forEach((book) => {
+    //   book.stockCount = await Book.getStockCount(book.isbn);
+    // });
+
+    for (book of books){
+      book.stockCount = await Book.getStockCount(book.isbn);
+    }
+    if (req.query.inStock === "false") {
+      books = books.filter(book => !book.stockCount);
+    }
+    if (req.query.noStock === "false") {
+      books = books.filter(book => book.stockCount);
+    }
+  }
 
     res.render("book-inventory", {
+      isInStock: req.query.inStock === "true",
+      isNoStock: req.query.noStock === "true",
       books,
       genres,
       loggedIn: req.session.loggedIn,
@@ -185,6 +223,7 @@ router.get("/book/:id", withAuth, async (req, res) => {
     }
 
     const book = bookData.get({ plain: true });
+    book.stockCount = await Book.getStockCount(book.isbn);
     console.log(book);
 
     res.render("book-details", {

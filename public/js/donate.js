@@ -34,12 +34,12 @@ async function populateForm() {
 
   const data = await response.json();
 
-  if (!response.ok) {
+  if (!data[Object.keys(data)[0]]?.title) {
     return newIsbn();
   }
 
-  titleEl.value = data[Object.keys(data)[0]].title;
-  authorEl.value = data[Object.keys(data)[0]].authors[0].name;
+  titleEl.value = data[Object.keys(data)[0]]?.title;
+  authorEl.value = data[Object.keys(data)[0]]?.authors[0]?.name;
 
   titleEl.disabled = true;
   authorEl.disabled = true;
@@ -48,7 +48,7 @@ async function populateForm() {
 }
 
 function newIsbn() {
-  alert("ISBN not found, please enter new book or fix your isbn");
+  alert("ISBN not found, please enter new book or fix your ISBN");
 
   titleEl.disabled = false;
   authorEl.disabled = false;

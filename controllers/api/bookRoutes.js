@@ -62,24 +62,56 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // update book data
-router.put("/:id", withAuth, async (req, res) => {
-  try {
-    const bookData = await Book.update(req.body, {
+// router.put("/:id", withAuth, async (req, res) => {
+//   try {
+//     const bookData = await Book.update(req.body, {
+//       where: {
+//         id: req.params.id,
+//       },
+//     });
+
+//     if (!bookData) {
+//       res.status(404).json({ message: "No book found with this id!" });
+//       return;
+//     }
+
+//     res.status(200).json(bookData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+//checkout a book
+router.put("/checkout", withAuth, async (req, res) => {
+  let rec_dt = new Date();
+
+  console.log("====================================================");
+  console.log(req.session.user_id);
+  console.log(req.body.id);
+  console.log(rec_dt);
+  // try {
+  const bookData = await Book.update(
+    { rec_id: req.session.user_id, rec_dt },
+    {
       where: {
-        id: req.params.id,
+        id: req.body.id,
       },
-    });
-
-    if (!bookData) {
-      res.status(404).json({ message: "No book found with this id!" });
-      return;
     }
+  );
 
-    res.status(200).json(bookData);
-  } catch (err) {
-    res.status(500).json(err);
+  if (!bookData) {
+    res
+      .status(404)
+      .json({ message: "No book found with this id: " + req.body.id });
+    return;
   }
+
+  res.status(200).json(bookData);
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
+
 
 // delete book data, probably don't need
 router.delete("/:id", withAuth, async (req, res) => {

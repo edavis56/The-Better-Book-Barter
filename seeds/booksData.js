@@ -289,7 +289,7 @@ const booksdata = [
     author: "Joseph Conrad",
     genre: "Adventure",
     isbn: "9780140180909",
-    book_condition: "fir",
+    book_condition: "Fair",
     rating: "4",
     // description:
     //   'Branches with pink apricot blossoms against a blue background.',
