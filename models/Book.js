@@ -103,7 +103,7 @@ Book.init(
       allowNull: true,
     },
 
-    // availableQuantity: {
+    // availableQuantity: {  / I couldn't get this to work...
     //   type: Sequelize.VIRTUAL(Sequelize.DECIMAL,
     //     [Sequelize.literal(`(COALESCE((select article."stockQuantity"
     //     - sum("orderRows"."orderedQuantity") from "orderRows"
