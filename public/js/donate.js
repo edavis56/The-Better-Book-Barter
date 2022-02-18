@@ -63,7 +63,7 @@ function isbnFound() {
   conditionEl.disabled = false;
 }
 
-const donateBook = (event) => {
+const donateBook = async (event) => {
   event.preventDefault();
 
   formEl.reportValidity();
@@ -95,11 +95,19 @@ const donateBook = (event) => {
     "Donate doesn't actually work yet, but all the validation should (except the API which I've turned off so I don't issue too many queries!"
   );
 
-  if (formEl.checkValidity()) {
-    alert(
-      "Donate doesn't actually work yet, but all the validation should (except the API which I've turned off so I don't issue too many queries!"
-    );
-  }
+  // if (formEl.checkValidity()) {
+  //   const response = await fetch("./api/books/", {
+  //     method: "POST",
+  //     body: JSON.stringify({ isbn, title, author, genre, rating, book_condition: condition }),
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+
+  //   if (response.ok) {
+  //     alert("response is good!")
+  //     return;
+  //   }
+
+  //   alert("Failure!");
 };
 
 submitEl.addEventListener("click", donateBook);
