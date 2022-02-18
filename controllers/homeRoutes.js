@@ -88,7 +88,16 @@ router.get("/inventory", async (req, res) => {
     let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
     let genres = genreData.map((genre) => genre.get({ plain: true }));
 
+    let whereClause = {};
+    
+
+    if (req.query?.genre) {
+      whereClause.genre = req.query.genre
+    }
+    console.log(whereClause);
+    console.log(req.query.genre);
     const bookData = await Book.findAll({
+      where: whereClause,
       group: ["isbn"],
     });
 
