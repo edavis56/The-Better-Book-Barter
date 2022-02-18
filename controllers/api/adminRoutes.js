@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { Genre, Condition } = require("../../models");
-const withAuth = require("../../utils/auth");
 
 // Create genre
 router.post("/admin", (req, res) => {
