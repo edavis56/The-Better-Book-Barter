@@ -1,7 +1,7 @@
 <div class="container bg-secondary pb-1 pt-1 text-center">
         <h1 class="text-white">Book Inventory</h1>
     </div>
-
+    <form id="search-parameters">
     <div class="container bg-dark text-white mt-1 pb-1">
         <div class="row align-items-start">
           <div class="col">
@@ -54,9 +54,9 @@
       </div>
 
       <div class="container d-grid gap-2 bg-dark mt-1 pb-1 pt-1">
-        <button class="btn btn-primary" id="search-bar">Search</button>
+        <button class="btn btn-primary" id="search-bar" type="submit">Search</button>
       </div>
-
+    </form>
       <div class="container mt-1 bg-dark pt-1">
         <div class="row">
         {{#each books as |book|}}

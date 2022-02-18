@@ -148,10 +148,25 @@ router.get("/inventory", withAuth, async (req, res) => {
 
     let whereClause = {};
 
-    if (req.query?.genre) {
+    // if(req.query?.rating) {
+    //   whereClause.rating = req.query.rating;
+    // } else if (req.query?.genre) {
+    //   whereClause.genre = req.query.genre;
+    // } 
+    // if (req.query?.rating && req.query?.genre) {
+    //   whereClause.query = (req.query.rating && req.query.genre);
+    // }
+    if(req.query.genre) {
       whereClause.genre = req.query.genre;
+    } 
+
+    if (req.query.rating) {
+      whereClause.rating = req.query.rating;
     }
+
+
     console.log(whereClause);
+    console.log(req.query.rating);
     console.log(req.query.genre);
     const bookData = await Book.findAll({
       where: whereClause,
@@ -183,6 +198,7 @@ router.get("/book/:id", withAuth, async (req, res) => {
     }
 
     const book = bookData.get({ plain: true });
+    book.stockCount = await Book.getStockCount(book.isbn);
     console.log(book);
 
     res.render("book-details", {
