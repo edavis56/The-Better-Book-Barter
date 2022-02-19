@@ -1,5 +1,5 @@
 <h1 align="center"> The Better Book Barter </h1>
-  
+
 
 
   
@@ -16,6 +16,7 @@
 - [Table of Contents](#table-of-contents)
 - [Description](#description)
 - [User Story](#user-story)
+- [Screenshots](#screenshots) 
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -33,6 +34,12 @@
 ```
 As a collector of quality books, I want to track my collection, add personal observation, share my collection with others, and search for quality books to add to my collection.
 ```
+
+
+
+## 💻 Below is a screenshot of the application:
+  
+![The Better Book Barter](/assets/main-page.png)
 
 ## Acceptance Criteria
 
