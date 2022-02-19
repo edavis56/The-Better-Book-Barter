@@ -12,6 +12,10 @@ footer {
   text-decoration: none;
 }
 
+.nav-link {
+  cursor: pointer;
+}
+
 .comment-body {
   height: 120px;
   width: 590px;

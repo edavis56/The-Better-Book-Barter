@@ -17,11 +17,11 @@ class Book extends Model {
   static async getRecPlace(receiveCount) {
     const queryString = `SELECT count(*) AS place FROM (SELECT rec_id, count(1) AS count FROM book GROUP BY rec_id HAVING count > ${receiveCount}) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
-    return results[0].place + 1;
+    return results[0].place; // NULL is always included, so don't add one...kind of a hack, but time is short!
   }
 
   static async getRecTotal() {
-    const queryString = `SELECT count(*) AS total FROM (SELECT DISTINCT rec_id FROM book) AS temp`;
+    const queryString = `SELECT count(*) AS total FROM (SELECT DISTINCT rec_id FROM book where rec_id is not null) AS temp`;
     let [results, metadata] = await sequelize.query(queryString);
     return results[0].total;
   }
