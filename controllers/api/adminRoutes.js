@@ -1,20 +1,22 @@
 const router = require("express").Router();
-const { Genre} = require("../../models");
+const {Genre} = require("../../models");
+const {withAuth} = require("../../utils");
+
 
 // Create genre
-router.post("/genre", (req, res) => {
+router.post("/genre", withAuth, (req, res) => {
   Genre.create({
-    name: req.body.genre,
-  }).then((genreData) => {
-    req.session.save(() => {
-      req.session.name = genreData.name;
-
-      res.json(genreData);
-    });
+    name: req.body.genre_input,
+    }).then((response) => {
+      if (response){
+        res.status(200).send("Added successful")
+      } else {
+        res.status(500).send("Error adding record")
+      }
+      });
   });
-});
 
-router.delete("/genre", (req, res) => {
+router.delete("/genre", withAuth, (req, res) => {
   //guard clause
   if (!req.body.genre_list){
     res.status(400).send("No genre exist")

@@ -1,22 +1,18 @@
 <main class="mbs-body">
   <form class="form" id="add-genre-condition">
     <label for="genre">Genre:</label>
-    <input class="admin-input" type="text" id="genre" />
+    <input  type="text" id="genre-input"></input>
     <p><button id="addBtn">Add</button></p>
-    <br />
 
-  <select
-              class="form-input"
-              name="genres"
-              id="genre-list"
-            >
-              {{#each genres as |genre|}}
-                <option value="{{genre.name}}">{{genre.name}}</option>
-              {{/each}}
-            </select>
-<p><button id="deleteBtn">Delete</button></p>
-  </form>
-          
+    <label for="genre">Make Selection:</label>
+    <select class="form-input" name="genres" id="genre-list">
+      {{#each genres as |genre|}}
+        <option value="{{genre.name}}">{{genre.name}}</option>
+      {{/each}}
+    </select>
+    <p><button id="deleteBtn">Delete</button></p>
+
+  </form>   
 </main>
 
 <script src="/js/admin.js"></script>
