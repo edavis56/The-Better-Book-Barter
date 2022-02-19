@@ -39,19 +39,22 @@ router.get("/bookshelf", withAuth, async (req, res) => {
   let receivedCount = receivedBooks.length;
   let availableCount = donatedCount - receivedCount;
 
-  let donorPlace = await Book.getDonorPlace(donatedCount);
-  donorPlace = applyOrdinalSuffix(donorPlace);
+  let donorPlace = donatedCount
+    ? applyOrdinalSuffix(await Book.getDonorPlace(donatedCount))
+    : 0;
+  let avgDonatedRatings = donatedCount
+    ? await Book.getAvgDonatedRatings(user_id)
+    : 0;
+  let avgDonatedPlace = donatedCount
+    ? applyOrdinalSuffix(await Book.getAvgDonatedPlace(avgDonatedRatings))
+    : 0;
+
+  let recPlace = receivedCount
+    ? applyOrdinalSuffix(await Book.getRecPlace(receivedCount))
+    : 0;
 
   let donorTotal = await Book.getDonorTotal();
-
-  let recPlace = await Book.getRecPlace(receivedCount);
-  recPlace = applyOrdinalSuffix(recPlace);
-
   let recTotal = await Book.getRecTotal();
-
-  let avgDonatedRatings = await Book.getAvgDonatedRatings(user_id);
-  let avgDonatedPlace = await Book.getAvgDonatedPlace(avgDonatedRatings);
-  avgDonatedPlace = applyOrdinalSuffix(avgDonatedPlace);
 
   let ranking = {
     donated: {
