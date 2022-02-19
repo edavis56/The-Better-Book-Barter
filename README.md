@@ -91,8 +91,13 @@ Enter PW when promted
 ## Testing
 ✏️
 
+
 ## Deployed application  
  https://the-better-book-barter.herokuapp.com/
+
+
+ ## GitHub Repository
+ https://github.com/edavis56/The-Better-Book-Barter
 
 
 ## Contributing
