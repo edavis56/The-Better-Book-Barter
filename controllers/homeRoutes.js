@@ -1,5 +1,5 @@
 const { User, Book, Condition, Genre } = require("./../models");
-const { withAuth, applyOrdinalSuffix } = require("./../utils");
+const { withAuth, applyOrdinalSuffix, format_date } = require("./../utils");
 
 const router = require("express").Router();
 
@@ -19,7 +19,7 @@ router.get("/", (req, res) =>
 router.get("/admin", async (req, res) => {
   let genreData = await Genre.findAll({ order: [["name", "ASC"]] });
   let genres = genreData.map((genre) => genre.get({ plain: true }));
-  res.render("admin", { genres, loggedIn: req.session.loggedIn })
+  res.render("admin", { genres, loggedIn: req.session.loggedIn });
 });
 
 // MyBookshelf Page
@@ -154,18 +154,17 @@ router.get("/inventory", withAuth, async (req, res) => {
     //   whereClause.rating = req.query.rating;
     // } else if (req.query?.genre) {
     //   whereClause.genre = req.query.genre;
-    // } 
+    // }
     // if (req.query?.rating && req.query?.genre) {
     //   whereClause.query = (req.query.rating && req.query.genre);
     // }
-    if(req.query.genre) {
+    if (req.query.genre) {
       whereClause.genre = req.query.genre;
-    } 
+    }
 
     if (req.query.rating) {
       whereClause.rating = req.query.rating;
     }
-
 
     console.log(whereClause);
     console.log(req.query.rating);
@@ -176,27 +175,26 @@ router.get("/inventory", withAuth, async (req, res) => {
     let books = [];
 
     if (req.query.inStock === "true" || req.query.noStock === "true") {
+      const bookData = await Book.findAll({
+        where: whereClause,
+        group: ["isbn"],
+      });
 
-    const bookData = await Book.findAll({
-      where: whereClause,
-      group: ["isbn"],
-    });
+      books = bookData.map((book) => book.get({ plain: true }));
+      // books.forEach((book) => {
+      //   book.stockCount = await Book.getStockCount(book.isbn);
+      // });
 
-    books = bookData.map((book) => book.get({ plain: true }));
-    // books.forEach((book) => {
-    //   book.stockCount = await Book.getStockCount(book.isbn);
-    // });
-
-    for (book of books){
-      book.stockCount = await Book.getStockCount(book.isbn);
+      for (book of books) {
+        book.stockCount = await Book.getStockCount(book.isbn);
+      }
+      if (req.query.inStock === "false") {
+        books = books.filter((book) => !book.stockCount);
+      }
+      if (req.query.noStock === "false") {
+        books = books.filter((book) => book.stockCount);
+      }
     }
-    if (req.query.inStock === "false") {
-      books = books.filter(book => !book.stockCount);
-    }
-    if (req.query.noStock === "false") {
-      books = books.filter(book => book.stockCount);
-    }
-  }
 
     res.render("book-inventory", {
       isInStock: req.query.inStock === "true",
