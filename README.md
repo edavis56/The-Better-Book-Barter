@@ -91,6 +91,9 @@ Enter PW when promted
 ## Testing
 ✏️
 
+## Deployed application  
+ https://the-better-book-barter.herokuapp.com/
+
 
 ## Contributing
 ✉️ Contact us with any questions ❓: 
