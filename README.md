@@ -67,7 +67,7 @@ Have a quality README (with unique name, description, technologies used, screens
 
 `npm install`
 
-Dependencies: express, express-handlebars, express-session, mysql2, sequelize.
+Dependencies: express, express-handlebars, express-session, mysql2, sequelize, date-fns, bcrypt, dotenv, nodemon.
   
 ## Usage
 💻   
