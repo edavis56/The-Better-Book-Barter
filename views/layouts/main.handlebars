@@ -29,16 +29,17 @@
       <nav class="navbar navbar-expand-sm navbar-light">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav m-auto">
-            <a class="nav-item nav-link" href="/">Home</a>
+            
             {{! <a class="nav-item nav-link" href="/browse">Browse</a> }}
 
             {{#if loggedIn}}
+              <a class="nav-item nav-link" href="/">Home</a>
               <a class="nav-item nav-link" href="/bookshelf">My Bookshelf</a>
               <a class="nav-item nav-link" href="/inventory?inStock=true&noStock=true">Inventory</a>
               <a class="nav-item nav-link" href="/donate">Donate</a>
               <a id="logout" class="nav-item nav-link">Logout</a>
             {{else}}
-              <a class="nav-item nav-link" href="/login">Login</a>
+              <a class="nav-item nav-link" href="/login">Login/Sign Up</a>
             {{/if}}
           </div>
         </div>
